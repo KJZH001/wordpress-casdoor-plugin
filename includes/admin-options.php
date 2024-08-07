@@ -56,6 +56,7 @@ class casdoor_admin
                 <strong>NOTE:</strong> 如果您想在主题中的任何地方添加自定义链接，
                 只需在用户未登录时链接到 <strong><?= site_url('?auth=casdoor'); ?></strong> 即可。
             </p>
+            <p><strong>汉化 By 晓空 | <a href="https://blog.moeworld.tech/">https://blog.moeworld.tech/ </a></strong> </p>
             <div id="accordion">
                 <h4>Step 1: Setup</h4>
                 <div>
@@ -118,7 +119,7 @@ class casdoor_admin
                             </tr>
 
                             <tr valign="top">
-                                <th scope="row">Redirect to the dashboard after signing in</th>
+                                <th scope="row">登录后自动重定向到Wordpress仪表盘</th>
                                 <td>
                                     <input type="checkbox"
                                            name="<?= self::OPTIONS_NAME ?>[redirect_to_dashboard]"
@@ -126,7 +127,7 @@ class casdoor_admin
                                 </td>
                             </tr>
                             <tr valign="top">
-                                <th scope="row">Restrict flow to log in only</th>
+                                <th scope="row">关闭新用户登录（仅允许已有账户通过单点登录）</th>
                                 <td>
                                     <input type="checkbox"
                                            name="<?= self::OPTIONS_NAME ?>[login_only]"
@@ -134,7 +135,7 @@ class casdoor_admin
                                 </td>
                             </tr>
                             <tr valign="top">
-                                <th scope="row">Auto SSO for users that are not logged in</th>
+                                <th scope="row">如果未登录则自动执行单点登录</th>
                                 <td>
                                     <input type="checkbox"
                                            name="<?= self::OPTIONS_NAME ?>[auto_sso]"
