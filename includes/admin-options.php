@@ -64,9 +64,9 @@ class casdoor_admin
                         <li>安装并运行 casdoor (<a
                                     href="https://github.com/casbin/casdoor" target="_blank">GitHub</a>)
                         </li>
-                        <li>Create a new application and add following uri to callback URLs:
+                        <li>创建新应用程序，并在回调 URL 中添加以下URI:
                             <strong class="code"><?= site_url('?auth=casdoor'); ?></strong></li>
-                        <li>Copy the Client ID and Client Secret in Step 2 below.</li>
+                        <li>复制 应用ID 和 应用秘钥 备用，我们将会在第二步中用到</li>
                     </ol>
                 </div>
                 <h4 id="sso-configuration">Step 2: Configuration</h4>
