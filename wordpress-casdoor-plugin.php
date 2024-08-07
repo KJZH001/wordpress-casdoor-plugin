@@ -26,7 +26,8 @@ function casdoor_register_files()
     // Register a CSS stylesheet.
     wp_register_style('casdoor_admin', plugins_url('/assets/css/admin.css', __FILE__));
     // Register a new script.
-    wp_register_script('casdoor_admin', plugins_url('/assets/js/admin.js', __FILE__));
+    // 目前去掉貌似没什么关系
+    // wp_register_script('casdoor_admin', plugins_url('/assets/js/admin.js', __FILE__));
 }
 
 $casdoor = new Casdoor();
