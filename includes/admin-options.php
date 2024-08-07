@@ -60,7 +60,7 @@ class casdoor_admin
             <div id="accordion">
                 <h4>Step 1: Setup</h4>
                 <div>
-                    <strong>配置 Casdoor</strong>
+                    <strong>设定 Casdoor</strong>
                     <ol>
                         <li>安装并运行 casdoor (<a
                                     href="https://github.com/casbin/casdoor" target="_blank">GitHub</a>)
@@ -76,7 +76,7 @@ class casdoor_admin
                         <?php settings_fields('casdoor_options'); ?>
                         <table class="form-table">
                         <tr valign="top">
-                                <th scope="row">Activate Casdoor</th>
+                                <th scope="row">激活Casdoor</th>
                                 <td>
                                     <input type="checkbox"
                                         name="<?= self::OPTIONS_NAME ?>[active]"
@@ -105,7 +105,7 @@ class casdoor_admin
                                 <td>
                                     <input type="text" name="<?= self::OPTIONS_NAME ?>[backend]" min="10"
                                            value="<?= casdoor_get_option('backend'); ?>"/>
-                                    <p class="description">Example: https://your-casdoor-backend.com</p>
+                                    <p class="description">Example: https://auth.moeworld.tech</p>
                                 </td>
                             </tr>
 
