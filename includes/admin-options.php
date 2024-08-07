@@ -154,6 +154,19 @@ class casdoor_admin
         </div>
         <div style="clear:both;"></div>
         </div>
+        <!-- 额外的css by 晓空 -->
+        <style>
+            /* 修复 感谢使用 WordPress 进行创作 错位的问题 */
+            #wpfooter {
+                position: static !important;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 10px 20px;
+                color: #50575e;
+            }
+        </style>
+        <!-- 额外的css结束 by 晓空 -->
         <?php
     }
 
