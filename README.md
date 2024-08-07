@@ -1,31 +1,31 @@
 # wordpress-casdoor-plugin
-This plugin is designed and developed for use with [casdoor](https://github.com/casbin/casdoor). After activating the plugin, it will replace standard WordPress login forms with one powered by casdoor. 
+这个插件是为 [casdoor](https://github.com/casbin/casdoor) 设计和开发的。激活插件后，它将用 casdoor 支持的登录表单替换标准的 WordPress 登录表单。
 
-## Installation
-This plugin has not been published to wordpress plugin store, so you need to download this plugin, and move it to the `wp-content/plugins` directory manaully.
+## 安装
+该插件尚未发布到 WordPress 插件商店，因此需要手动下载并将其移动到 `wp-content/plugins` 目录。
 
-## Get started
-First, activate this plugin as an admin, this will add a new section about casdoor to your settings page. 
+## 开始使用
+首先，作为管理员激活该插件，这将在设置页面添加一个关于 casdoor 的新部分。
 
-Because this plugin is a client of casdoor. So you need to run a casdoor program, create a application and add `http://your-wordpress-domain/?auth=casdoor` to the `Redirect URLs` list of your casdoor application.
+因为这个插件是 casdoor 的客户端，所以需要运行 casdoor 程序，创建一个应用并将 `http://your-wordpress-domain/?auth=casdoor` 添加到 casdoor 应用的 `Redirect URLs` 列表中。
 
-Then click on this new section and set up your casdoor plugin, this mainly involves the following settings.
+然后点击新部分并设置你的 casdoor 插件，主要涉及以下设置：
 
-- Activate Casdoor: If this radio box is checked, the default login form will be replaced.
-- Client ID: the client id of your casdoor application.
-- Client Secret: the client secret of your casdoor application.
-- Backend URL: The address of the computer running your casdoor program:the backend port.
-- Organization: This is a setting for `casdoor-php-sdk`, you can ignore it now.
-- Redirect to the dashboard after signing in: If this radio box is checked, after logging in, the user will be redirected to the dashboard page.
-- Restrict flow to log in only: If this radio box is checked, casdoor will not insert user's information to wordpress's wp_users table.In other words, casdoor users that do not exist in the wordpress will not be able to login.
-- Auto SSO for users that are not logged in: If this radio box is checked, the user will be redirected to the login page, even if the page the user visits does not require a login.
+- 启用 Casdoor：如果选中该单选框，默认登录表单将被替换。
+- 客户端 ID：你的 casdoor 应用的客户端 ID。
+- 客户端密钥：你的 casdoor 应用的客户端密钥。
+- 后端 URL：运行 casdoor 程序的计算机地址：后端端口。
+- 组织：这是 `casdoor-php-sdk` 的设置，目前可以忽略。
+- 登录后重定向到仪表板：如果选中该单选框，登录后用户将被重定向到仪表板页面。
+- 限制仅登录：如果选中该单选框，casdoor 将不会将用户信息插入 WordPress 的 wp_users 表。换句话说，不存在于 WordPress 的 casdoor 用户将无法登录。
+- 为未登录用户自动 SSO：如果选中该单选框，即使用户访问的页面不需要登录，用户也会被重定向到登录页面。
 
-After successfully setting up this plugin, all login requests sent to login.php will be redirected to casdoor application.
+成功设置该插件后，所有发送到 login.php 的登录请求将被重定向到 casdoor 应用。
 
-## workflow
-After the username/email, password you entered is verified by casdoor, there may be two situations. Casdoor will try to find the corresponding user, if the user exists in wordpress, casdoor will login as this user, otherwise it will insert the user's information to the wp_users table of wordpress, then login as this user.
+## 工作流程
+在 casdoor 验证了你输入的用户名/邮箱和密码后，可能会有两种情况。casdoor 会尝试查找对应的用户，如果用户在 WordPress 中存在，casdoor 将以该用户身份登录，否则它将用户信息插入 WordPress 的 wp_users 表，然后以该用户身份登录。
 
-## TODOS
-- Integrate `php-casdoor-sdk`
-- Publish this plugin to wordpress
-- Display warning and error messages
+## 待办事项
+- 集成 `php-casdoor-sdk`
+- 将该插件发布到 WordPress
+- 显示警告和错误消息
