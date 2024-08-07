@@ -57,6 +57,10 @@ class casdoor_admin
                 只需在用户未登录时链接到 <strong><?= site_url('?auth=casdoor'); ?></strong> 即可。
             </p>
             <p><strong>汉化 By 晓空 | <a href="https://blog.moeworld.tech/">https://blog.moeworld.tech/ </a></strong> </p>
+            <p><strong>Github发布页 <a href="https://github.com/KJZH001/wordpress-casdoor-plugin">https://github.com/KJZH001/wordpress-casdoor-plugin</a></strong> </p>
+            <p><strong>* 免责声明：这是一个由晓空修改的Casdoor插件，请自行考虑安全性以决定是否使用，
+                我们不会为此插件承担任何责任</strong></p>
+            <hr />
             <div id="accordion">
                 <h4>Step 1: Setup</h4>
                 <div>
