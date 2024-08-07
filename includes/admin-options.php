@@ -48,22 +48,20 @@ class casdoor_admin
     {
         ?>
         <div class="wrap">
-            <h2>Casdoor Plugin Configuration</h2>
-            <p>This plugin is meant to be used with <a href="https://casdoor.org/">casdoor</a>.</p>
+            <h2>Casdoor 插件设置</h2>
+            <p>该插件需要与 <a href="https://casdoor.org/">casdoor</a> 配合一起使用</p>
             <p>
-                When activated, this plugin will redirect all login requests to your casdoor page.
+                激活后，该插件将把所有登录请求重定向到您的 casdoor 页面。
                 <br/>
-                <strong>NOTE:</strong> If you want to add a
-                custom link anywhere in your theme simply link to
-                <strong><?= site_url('?auth=casdoor'); ?></strong>
-                if the user is not logged in.
+                <strong>NOTE:</strong> 如果您想在主题中的任何地方添加自定义链接，
+                只需在用户未登录时链接到 <strong><?= site_url('?auth=casdoor'); ?></strong> 即可。
             </p>
             <div id="accordion">
                 <h4>Step 1: Setup</h4>
                 <div>
-                    <strong>Setting up Casdoor</strong>
+                    <strong>配置 Casdoor</strong>
                     <ol>
-                        <li>Install and Run casdoor (<a
+                        <li>安装并运行 casdoor (<a
                                     href="https://github.com/casbin/casdoor" target="_blank">GitHub</a>)
                         </li>
                         <li>Create a new application and add following uri to callback URLs:
