@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Wordpress Casdoor Plugin
- * Plugin URI: https://github.com/casdoor/wordpress-casdoor-plugin
+ * Plugin URI: https://github.com/KJZH001/wordpress-casdoor-plugin
  * Version: 1.0.0
- * Description: Creates the ability to login using Single Sign On from casdoor.
- * Author: casdoor
- * Author URI: https://github.com/casdoor/
+ * Description: 让Wordpress通过Casdoor完成单点登录
+ * Author: 晓空 & casdoor
+ * Author URI: https://github.com/KJZH001/
  * License: Apache
  */
 
