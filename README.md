@@ -1,11 +1,22 @@
 # wordpress-casdoor-plugin
 这个插件是为 [casdoor](https://github.com/casbin/casdoor) 设计和开发的。激活插件后，它将用 casdoor 支持的登录表单替换标准的 WordPress 登录表单。
 
+该插件需要与 casdoor 配合一起使用
+
+激活后，该插件将把所有登录请求重定向到您的 casdoor 页面。<br>
+NOTE: 如果您想在主题中的任何地方添加自定义链接， 只需在用户未登录时链接到 https://blog.moeworld.tech/?auth=casdoor 即可。
+
+汉化 By 晓空 | [https://blog.moeworld.tech/](https://blog.moeworld.tech/)
+
+Github发布页 [https://github.com/KJZH001/wordpress-casdoor-plugin](https://github.com/KJZH001/wordpress-casdoor-plugin)
+
+* **免责声明：这是一个由晓空修改的Casdoor插件，请自行考虑安全性以决定是否使用， 我们不会为此插件承担任何责任**
+
 ## 安装
 该插件尚未发布到 WordPress 插件商店，因此需要手动下载并将其移动到 `wp-content/plugins` 目录。
 
 ## 开始使用
-首先，作为管理员激活该插件，这将在设置页面添加一个关于 casdoor 的新部分。
+首先，作为管理员激活该插件，这将在设置页面添加一个关于 casdoor 的新页面。
 
 因为这个插件是 casdoor 的客户端，所以需要运行 casdoor 程序，创建一个应用并将 `http://your-wordpress-domain/?auth=casdoor` 添加到 casdoor 应用的 `Redirect URLs` 列表中。
 
