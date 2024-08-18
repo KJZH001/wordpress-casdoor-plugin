@@ -118,7 +118,10 @@ class casdoor_admin
                                 <td>
                                     <input type="text" name="<?= self::OPTIONS_NAME ?>[organization]" 
                                            value="<?= casdoor_get_option('organization'); ?>"/>
-                                    <p class="description">Example/Default: built-in</p>
+                                    <p class="description">
+                                        Example/Default: MoeWorld<br>
+                                        如非必要，请勿使用built-in组织进行配置单点登录，此组织下所有账户均会自动获得Casdoor的全局管理员权限
+                                    </p>
                                 </td>
                             </tr>
 
