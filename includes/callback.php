@@ -103,7 +103,11 @@ if (!empty($_GET['code'])) {
 
         wp_clear_auth_cookie();
         wp_set_current_user($user_id);
-        wp_set_auth_cookie($user_id);
+        // 延长cookie有效期为14天
+        // https://developer.wordpress.org/reference/functions/wp_set_auth_cookie/
+        // wp_set_auth_cookie( int $user_id, bool $remember = false, bool|string $secure = ”, string $token = ” )
+        // wp_set_auth_cookie($user_id);
+        wp_set_auth_cookie($user_id,true);
 
         if (is_user_logged_in()) {
             wp_safe_redirect($user_redirect);
@@ -135,7 +139,10 @@ if (!empty($_GET['code'])) {
 
         wp_clear_auth_cookie();
         wp_set_current_user($user->ID);
-        wp_set_auth_cookie($user->ID);
+        // 延长cookie有效期为14天
+        // https://developer.wordpress.org/reference/functions/wp_set_auth_cookie/
+        // wp_set_auth_cookie($user->ID);
+        wp_set_auth_cookie($user->ID,true);
 
         if (is_user_logged_in()) {
             wp_safe_redirect($user_redirect);
