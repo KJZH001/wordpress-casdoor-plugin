@@ -16,6 +16,7 @@ Github发布页 [https://github.com/KJZH001/wordpress-casdoor-plugin](https://gi
 - 修复了原版插件向所有界面无差别注入会报错的js代码的问题
 - 汉化了绝大多数的地方
 - 延长了cookie有效期（从48小时延长到了14天）
+- 修复了后台的 `感谢使用 WordPress 进行创作。X.X.X 版本` 的页脚错位
 
 ## 安装
 该插件尚未发布到 WordPress 插件商店，因此需要手动下载并将其移动到 `wp-content/plugins` 目录。
