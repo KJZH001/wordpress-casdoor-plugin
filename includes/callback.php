@@ -25,7 +25,8 @@ if (!isset($_GET['code'])) {
         'oauth'         => 'authorize',
         'response_type' => 'code',
         'client_id'     => casdoor_get_option('client_id'),
-        'client_secret' => casdoor_get_option('client_secret'),
+        // 秘钥放在这？上游你是认真的吗
+        // 'client_secret' => casdoor_get_option('client_secret'),
         'redirect_uri'  => site_url('?auth=casdoor'),
         'state'         => urlencode($user_redirect)
     ];
