@@ -37,9 +37,13 @@ if (!isset($_GET['code'])) {
 // Handle the callback from the backend is there is one.
 if (!empty($_GET['code'])) {
     // If the state is present, let's redirect to that link.
-    if (!empty($_GET['state'])) {
-        $user_redirect = sanitize_text_field($_GET['state']);
+    if (!empty($_GET['state'])) 
+    {
+        $decoded_state = esc_url_raw(urldecode($_GET['state']));
+        // 仅允许重定向回本站地址，或使用 wp_validate_redirect 做校验
+        $user_redirect = wp_validate_redirect($decoded_state, home_url());
     }
+    
 
     $code       = sanitize_text_field($_GET['code']);
     $backend    = casdoor_get_option('backend') . '/api/login/oauth/access_token';

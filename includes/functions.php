@@ -46,6 +46,13 @@ function casdoor_set_options(string $key, $value)
     update_option(casdoor_admin::OPTIONS_NAME, $options);
 }
 
+// OIDC 空梦统一通行证
+// 用于生成随机的state
+function generateRandomState($length = 16) 
+{
+    return bin2hex(random_bytes($length));
+}
+
 /**
  * Get the login url of casdoor
  *
@@ -61,7 +68,9 @@ function get_casdoor_login_url(string $redirect = ''): string
         'client_id'     => casdoor_get_option('client_id'),
         'client_secret' => casdoor_get_option('client_secret'),
         'redirect_uri'  => site_url('?auth=casdoor'),
-        'state'         => urlencode($redirect)
+        // 话说这里传入的字段为什么会是$redirect呢？
+        // 'state'         => urlencode($redirect)
+        'state'         => generateRandomState()
     ];
     $params = http_build_query($params);
     return casdoor_get_option('backend') . '/login/oauth/authorize?' . $params;
