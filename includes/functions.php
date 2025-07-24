@@ -129,3 +129,14 @@ function casdoor_get_user_redirect_url(): string
 
     return $user_redirect;
 }
+
+// 用于获取用户的ip地址信息
+// 该函数来自于 kratos-pjax 的 inc/core.php 的 function get_client_ip(){
+function casdoor_get_client_ip(){
+    if(getenv("HTTP_CLIENT_IP")&&strcasecmp(getenv("HTTP_CLIENT_IP"),"unknown")) $ip = getenv("HTTP_CLIENT_IP");
+    elseif(getenv("HTTP_X_FORWARDED_FOR")&&strcasecmp(getenv("HTTP_X_FORWARDED_FOR"),"unknown")) $ip = getenv("HTTP_X_FORWARDED_FOR");
+    elseif(getenv("REMOTE_ADDR")&&strcasecmp(getenv("REMOTE_ADDR"),"unknown")) $ip = getenv("REMOTE_ADDR");
+    elseif(isset($_SERVER['REMOTE_ADDR'])&&$_SERVER['REMOTE_ADDR']&&strcasecmp($_SERVER['REMOTE_ADDR'],"unknown")) $ip = $_SERVER['REMOTE_ADDR'];
+    else $ip = "unknown";
+    return ($ip);
+}

@@ -115,7 +115,7 @@ if (!empty($_GET['code'])) {
         wp_set_auth_cookie($user_id,true);
         // 记录下用户上次登录的ip和时间
         update_user_meta($user->ID,'last_login',current_time('mysql'));
-        $last_login_ip = get_client_ip();
+        $last_login_ip = casdoor_get_client_ip();
         update_user_meta($user->ID,'last_login_ip',$last_login_ip);
 
         if (is_user_logged_in()) {
@@ -154,7 +154,7 @@ if (!empty($_GET['code'])) {
         wp_set_auth_cookie($user->ID,true);
         // 记录下用户上次登录的ip和时间
         update_user_meta($user->ID,'last_login',current_time('mysql'));
-        $last_login_ip = get_client_ip();
+        $last_login_ip = casdoor_get_client_ip();
         update_user_meta($user->ID,'last_login_ip',$last_login_ip);
 
         if (is_user_logged_in()) {
