@@ -122,7 +122,7 @@ if (!empty($_GET['code'])) {
         // Already Registered... Log the User In using ID or Email
         $random_password = __('User already exists.  Password inherited.');
         // Get the user by name
-        $user            = get_user_by('login', $info->name);
+        $user = get_user_by('login', $info->name);
 
         /*
          * Added just in case the user is not used but the email may be. If the user returns false from the user ID,
@@ -148,6 +148,9 @@ if (!empty($_GET['code'])) {
         // https://developer.wordpress.org/reference/functions/wp_set_auth_cookie/
         // wp_set_auth_cookie($user->ID);
         wp_set_auth_cookie($user->ID,true);
+        update_user_meta($user->ID,'last_login',current_time('mysql'));
+        $last_login_ip = get_client_ip();
+        update_user_meta($user->ID,'last_login_ip',$last_login_ip);
 
         if (is_user_logged_in()) {
             wp_safe_redirect($user_redirect);
