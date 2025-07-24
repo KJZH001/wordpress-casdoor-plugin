@@ -113,6 +113,10 @@ if (!empty($_GET['code'])) {
         // wp_set_auth_cookie( int $user_id, bool $remember = false, bool|string $secure = ”, string $token = ” )
         // wp_set_auth_cookie($user_id);
         wp_set_auth_cookie($user_id,true);
+        // 记录下用户上次登录的ip和时间
+        update_user_meta($user->ID,'last_login',current_time('mysql'));
+        $last_login_ip = get_client_ip();
+        update_user_meta($user->ID,'last_login_ip',$last_login_ip);
 
         if (is_user_logged_in()) {
             wp_safe_redirect($user_redirect);
@@ -148,6 +152,7 @@ if (!empty($_GET['code'])) {
         // https://developer.wordpress.org/reference/functions/wp_set_auth_cookie/
         // wp_set_auth_cookie($user->ID);
         wp_set_auth_cookie($user->ID,true);
+        // 记录下用户上次登录的ip和时间
         update_user_meta($user->ID,'last_login',current_time('mysql'));
         $last_login_ip = get_client_ip();
         update_user_meta($user->ID,'last_login_ip',$last_login_ip);
