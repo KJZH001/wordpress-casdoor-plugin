@@ -43,7 +43,7 @@ Github发布页 [https://github.com/KJZH001/wordpress-casdoor-plugin](https://gi
 ## 工作流程
 在 casdoor 验证了你输入的用户名/邮箱和密码后，可能会有两种情况。casdoor 会尝试查找对应的用户，如果用户在 WordPress 中存在，casdoor 将以该用户身份登录，否则它将用户信息插入 WordPress 的 wp_users 表，然后以该用户身份登录。
 
-## 待办事项
-- 集成 `php-casdoor-sdk`
-- 将该插件发布到 WordPress
-- 显示警告和错误消息
+## 注意事项
+对于 July 24th, 2025 (Commit ID `1c9e52e58abc6ec89aa39247c395610499abcdad`) 及之前的版本（包括 [casdoor/wordpress-casdoor-plugin](https://github.com/casdoor/wordpress-casdoor-plugin) 这个上游）均可能存在`client_secret`泄露的问题
+
+若您使用过或正在使用，请尽快更新并建议轮换秘钥（本分支已修复该问题，但上游是否修复未知）
