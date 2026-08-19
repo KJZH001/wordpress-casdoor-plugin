@@ -11,7 +11,6 @@ class Casdoor
     public $version = '1.0.0';
 
     public static $_instance = null;
-
     protected $default_settings = [
         'active'               => 0,
         'client_id'            => '',
@@ -23,7 +22,6 @@ class Casdoor
         'server_token_endpont' => 'token',
         'server_user_endpoint' => 'me'
     ];
-
     public function __construct()
     {
         add_action('init', [__CLASS__, 'includes']);
@@ -43,7 +41,6 @@ class Casdoor
 
         return self::$_instance;
     }
-
     /**
      * plugin includes called during load of plugin
      *
@@ -55,7 +52,6 @@ class Casdoor
         require_once(CASDOOR_PLUGIN_DIR . '/includes/admin-options.php');
         require_once(CASDOOR_PLUGIN_DIR . '/includes/Rewrites.php');
     }
-
     /**
      * Plugin Setup
      */
@@ -67,7 +63,6 @@ class Casdoor
         }
         $this->install();
     }
-
     /**
      * When wp-login.php was visited, redirect to the login page of casdoor
      *
@@ -77,13 +72,22 @@ class Casdoor
     {
         global $pagenow;
         $activated = absint(casdoor_get_option('active'));
-        if ('wp-login.php' == $pagenow && $_GET['action'] != 'logout' && $activated) {
-            $url = get_casdoor_login_url();
+        $action = isset($_GET['action']) ? sanitize_key(wp_unslash($_GET['action'])) : 'login';
+
+        if ('wp-login.php' == $pagenow && $action != 'logout' && $activated) {
+            $redirect = '';
+
+            if (!empty($_REQUEST['redirect_to'])) {
+                $redirect = wp_unslash($_REQUEST['redirect_to']);
+            } elseif ($referer = wp_get_referer()) {
+                $redirect = $referer;
+            }
+
+            $url = get_casdoor_login_url($redirect);
             wp_redirect($url);
             exit();
         }
     }
-
     public function logout()
     {
         $auto_sso = absint(casdoor_get_option('auto_sso'));
@@ -92,7 +96,6 @@ class Casdoor
             die();
         }
     }
-
     /**
      * Loads the plugin styles and scripts into scope
      *
@@ -106,7 +109,6 @@ class Casdoor
         wp_enqueue_style('casdoor_admin');
         wp_enqueue_script('casdoor_admin');
     }
-
     /**
      * Plugin Initializer
      */
